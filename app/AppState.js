@@ -13,7 +13,7 @@ class AppState extends EventEmitter {
 
   activeNote = null
 
-  user = []
+  user = ''
 }
 
 

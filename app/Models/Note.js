@@ -6,12 +6,13 @@ export class Note {
         this.name = data.name
         this.noteBody = data.noteBody
         this.date = data.date ? new Date(data.date) : new Date()
-        this.creatorName = data.creatorName
-
+        this.user = data.user
+        this.updateDate = data.updateDate ? new Date(data.updateDate) : new Date()
 
     }
 
 
+    // FIXME add a style tag to the this.name property that will match the color that was selected when the note was created.
     get NoteDataTemplate() {
         return `
        <div class="col-3 rounded elevation-2 text-white flex-column m-5 " onclick="app.notesController.setActive('${this.id}')">
@@ -23,9 +24,11 @@ export class Note {
     }
 
 
+    // FIXME show both the created at date and the updated date on the active note
     get ActiveTemplate() {
         return `
-        
+        <p> Created on: ${this.ComputeDate}</p>
+        <p> Updated at: ${this.ComputeUpdateDate}</p>
         <div class="col-8 ">
         <textarea class="w-100" name="noteBody" id="noteBody" cols="30"
         rows="10">${this.noteBody}</textarea>
@@ -45,6 +48,9 @@ export class Note {
         return (date.getMonth() + 1) + '/' + (date.getDate()) + '/' + (date.getFullYear())
     }
 
+    get ComputeUpdateDate() {
+        let updateDate = this.updateDate
+        return (updateDate.getMonth() + 1) + '/' + (updateDate.getDate()) + '/' + (updateDate.getFullYear()) + ' ' + (updateDate.getHours()) + ':' + (updateDate.getMinutes()) + ':' + (updateDate.getSeconds())
 
-
+    }
 }

@@ -16,7 +16,7 @@ class NotesService {
 
     createNotes(formData) {
         let newNote = new Note(formData)
-        // console.log('THIS IS MY NEW NOTE', formData)
+        console.log('THIS IS MY NEW NOTE', formData)
         appState.notes.push(newNote)
         _saveNotes()
         // @ts-ignore
@@ -27,12 +27,17 @@ class NotesService {
 
     }
 
-    saveNote() {
+    // FIXME be sure to pass the noteBody to the service
+    // then update the updatedDate and set it to a new date
+    // then set the activeNote.noteBody to  the noteBody that was passed to the service
+    // be sure to call your saveNotes function at the end so that it persists in local storage
+    saveNote(noteBody) {
         let activeNote = appState.activeNote
         // @ts-ignore
-        activeNote.noteBody = appState.activeNote
+        activeNote.noteBody = noteBody
         // console.log('This is my active report', activeNote)
         appState.emit('activeNote')
+        _saveNotes()
     }
 
     setActive(noteId) {

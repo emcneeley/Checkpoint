@@ -5,11 +5,16 @@ import { Pop } from "../Utils/Pop.js"
 import { setHTML } from "../Utils/Writer.js"
 import { Note } from "../Models/Note.js"
 
+
+// FIXME take a look at redacted's draw function to see how to narrow the draw down to only the notes created by that user
+// HINT look at the filter cases and how she forEached over only the filter cases that match the user
+// FIXME this is probably also where you want to handle the logic for drawing the total number of jots for that user
 function _drawNotes() {
     // console.log('THIS IS MY NOTE')
     let notes = appState.notes
     let template = ''
-    notes.forEach(n => template += n.NoteDataTemplate)
+    let filterNotes = notes.filter(notes => notes.user == appState.user)
+    filterNotes.forEach(n => template += n.NoteDataTemplate)
     setHTML('notes-data', template)
 }
 
@@ -61,11 +66,15 @@ export class NotesController {
         // @ts-ignore
         let form = event.target
         let formData = getFormData(form)
+
+        // @ts-ignore
+        formData.user = appState.user
         // @ts-ignore
         // console.log('this is my form data', formData)
         notesService.createNotes(formData)
         // @ts-ignore
         form.reset()
+
     }
 
 
