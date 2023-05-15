@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.1.96/css/materialdesignicons.min.css"
+    integrity="sha512-NaaXI5f4rdmlThv3ZAVS44U9yNWJaUYWzPhvlg5SC7nMRvQYV9suauRK3gVbxh7qjE33ApTPD+hkOW78VSHyeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>Checkpoint</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
+      <a class="navbar-brand ms-3" href="#">
+        <i class="mdi mdi-note"></i>
+        <span class="ms-2">JOT.</span>
+      </a>
+    </nav>
+  </header>
+
+
+
+  <main class="container-fluid">
+    <div class="row" id="note-form">
+      <div class="col-4 elevation-3 mx-4">
+        <h2>What shall we JOT down today?
+        </h2>
+        <form action="" onsubmit="app.notesController.createNote()">
+          <div class="mb-3 col-12">
+            <label for="color" class="form-label"></label>
+            <input required type="color" class="form-control" id="color" name="color" placeholder="Note Color">
+          </div>
+          <input required minlength="3" maxlength="15" class="form-control my-1" type="" name="name" id="">
+          <button class="btn btn-primary w-75 my-1" type="submit">
+            <i class="mdi mdi-plus"></i>
+          </button>
+        </form>
+      </div>
+
+
+
+
+      <!-- STUB HERE IS THE NOTE TEMPLATE  -->
+      <div class="row mt-2 flex-column" id="notes-data">
+        <!-- <div class="col-3 rounded elevation-2 bg-info text-white">
+        <p>note name</p>
+        <p>DATE</p>
+      </div>
+      <div class="col-8">
+        <textarea class="w-100" name="noteBody" id="noteBody" cols="30"
+          rows="10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium distinctio error explicabo sint quam, facilis perferendis autem iste libero voluptatibus. Ut sit temporibus optio mollitia id, provident animi eius.</textarea>
+      </div> -->
+      </div>
+      <!-- STUB HERE IS THE ACTIVE NOTE TEMPLATE -->
+      <div class="row" id="activeNote">
+        <!-- <div class="col-10">
+          <textarea class="w-100" name="noteBody" id="noteBody" cols="30"
+            rows="10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium distinctio error explicabo sint quam, facilis perferendis autem iste libero voluptatibus. Ut sit temporibus optio mollitia id, provident animi eius.</textarea>
+
+        </div> -->
+
+
+
+      </div>
+
+
+
+  </main>
+
+
+
+
+  <!-- <footer class="bg-dark text-light">
+    <div class="text-center no-select">
+      <p><small>Made with 💖 by CodeWorks</small></p>
+    </div>
+  </footer> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+  <script src="app/App.js" type="module"></script>
+</body>
+
+</html>
